@@ -9,12 +9,9 @@
     <title>Create</title>
 </head>
 <body>
-
-
     <div class="d-flex justify-content-center">
         <h1 style="width:75%; margin-top:50px;">Tambah Siswa</h1>
     </div>
-
 
     <div class="d-flex justify-content-center">
         <form style="width:75%; margin-top:50px;" action="{{route('siswa.store')}}" method="post">
@@ -35,7 +32,14 @@
             </div>
             <div class="mb-3">
                 <label for="kelas" class="form-label">Kelas</label>
-                <input type="text" class="form-control @error('kelas') is-invalid @enderror" name="kelas" value="{{ old('kelas') }}">
+                
+                <select name="kelas" class="form-control @error('kelas') is-invalid @enderror">
+                    <option value="">Pilih Kelas</option>
+                    <option value="X" {{ old('kelas') == 'X' ? 'selected' : '' }}>X</option>
+                    <option value="XI" {{ old('kelas') == 'XI' ? 'selected' : '' }}>XI</option>
+                    <option value="XII" {{ old('kelas') == 'XII' ? 'selected' : '' }}>XII</option>
+                </select>
+                
                 @error('kelas')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>

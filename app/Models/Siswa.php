@@ -7,7 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Siswa extends Model
 {
-    use HasFactory;
+    protected $fillable=['nama', 'kelas', 'jurusan'];
 
-    protected $fillable = ['nama', 'kelas', 'jurusan'];
+    //satu siswa milik 1kelas
+    public function kelas() {
+        return $this->belongsTo(kelas::class);
+    }
 }

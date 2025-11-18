@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('siswas', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-            $table->string('kelas');
+            $table->string('kelas'); // Changed back to string 'kelas'
             $table->string('jurusan');
             $table->timestamps();
         });

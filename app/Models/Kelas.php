@@ -7,7 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Kelas extends Model
 {
-    use HasFactory;
+    protected $fillable=['nama'];
 
-    protected $fillable = ['nama_kelas', 'tingkat', 'wali_kelas'];
+    //satu kelas punya banyak siswa
+    public function siswa() {
+        return $this->hasMany(siswa::class);
+    }
 }
